@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jtlshop3plugin>
+    <Name>relevanz</Name>
+    <Description>Intelligentes Retargeting wie die &amp;#8222;Gro&amp;szlig;en&amp;#8220;</Description>
+    <Author>WebStollen</Author>
+    <URL>http://www.webstollen.de/</URL>
+    <XMLVersion>102</XMLVersion>
+    <Shop4Version>404</Shop4Version>
+    <PluginID>jst_relevanz</PluginID>
+    <Install>
+        <Version nr="100">
+            <CreateDate>2018-02-02</CreateDate>
+        </Version>
+        <ExportFormat>
+            <Format>
+                <Name>relevanz (Plugin)</Name>
+                <FileName>relevanz.csv</FileName>
+                <Header>"productId";"categoryId";"productName";"shortDescr";"longDescr";"price";"link";"imgLink"</Header>
+                <Content><![CDATA[{strip}"{$Artikel->kArtikel}";"{$Artikel->oKategorie_arr[0]->kKategorie}";"{$Artikel->cName}";"{$Artikel->cKurzBeschreibung}";"{$Artikel->cBeschreibung}";"{$Artikel->Preise->fVKBrutto}";"{$Artikel->cURLFull}";"{$Artikel->Artikelbild}"{/strip}]]></Content>
+                <Footer/>
+                <Encoding>UTF-8</Encoding>
+                <VarCombiOption>2</VarCombiOption>
+                <SplitSize/>
+                <OnlyStockGreaterZero>N</OnlyStockGreaterZero>
+                <OnlyPriceGreaterZero>N</OnlyPriceGreaterZero>
+                <OnlyProductsWithDescription>N</OnlyProductsWithDescription>
+                <ShippingCostsDeliveryCountry>DE</ShippingCostsDeliveryCountry>
+                <EncodingQuote>N</EncodingQuote>
+                <EncodingDoubleQuote>Y</EncodingDoubleQuote>
+                <EncodingSemicolon>N</EncodingSemicolon>
+            </Format>
+        </ExportFormat>
+        <Hooks>
+            <Hook id="140">140.php</Hook>
+            <Hook id="207">207.php</Hook>
+        </Hooks>
+        <Adminmenu>
+            <Customlink sort="1">
+                <Name>Dashboard</Name>
+                <Filename>dashboard.php</Filename>
+            </Customlink>
+            <Settingslink sort="2">
+				<Name>Optionen</Name>
+				<Setting type="text" initialValue="" sort="1" conf="Y">
+					<Name>API Key:</Name>
+					<Description/>
+					<ValueName>apiKey</ValueName>
+				</Setting>
+			</Settingslink>
+            <Customlink sort="999">
+                <Name>Support</Name>
+                <Filename>info.php</Filename>
+            </Customlink>
+        </Adminmenu>
+    </Install>
+</jtlshop3plugin>
